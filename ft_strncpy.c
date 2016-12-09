@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 09:48:07 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/05 11:22:13 by drecours         ###   ########.fr       */
+/*   Created: 2016/11/21 14:21:31 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/05 11:31:39 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t	i;
-	char	*entree;
-	char	*sortie;
+	size_t i;
 
-	entree = (char*)src;
-	sortie = (char*)dest;
-	i = -1;
-	if (n == 0)
-		return (NULL);
-	if (src == dest)
-		return (dest);
-	while (++i != n && entree[i] != c)
-		entree[i] = sortie[i];
-	if (entree[i] == c)
-		return (dest + i + 1);
-	return (NULL);
+	i = 0;
+	while (src[i] && i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

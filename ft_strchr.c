@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 09:48:07 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/05 11:22:13 by drecours         ###   ########.fr       */
+/*   Created: 2016/11/30 15:31:03 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/05 11:50:39 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
-	char	*entree;
-	char	*sortie;
+	int		i;
 
-	entree = (char*)src;
-	sortie = (char*)dest;
-	i = -1;
-	if (n == 0)
+	i = 0;
+	while (c != s[i] && s[i] != '\0')
+		i++;
+	if (c == '\0' || c == s[i])
+		return ((char *)(s + i));
+	else
 		return (NULL);
-	if (src == dest)
-		return (dest);
-	while (++i != n && entree[i] != c)
-		entree[i] = sortie[i];
-	if (entree[i] == c)
-		return (dest + i + 1);
-	return (NULL);
 }

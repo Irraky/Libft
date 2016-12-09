@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 09:48:07 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/05 11:22:13 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/01 19:17:37 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/05 11:30:54 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	i;
-	char	*entree;
-	char	*sortie;
+	size_t i;
+	size_t j;
 
-	entree = (char*)src;
-	sortie = (char*)dest;
-	i = -1;
-	if (n == 0)
-		return (NULL);
-	if (src == dest)
-		return (dest);
-	while (++i != n && entree[i] != c)
-		entree[i] = sortie[i];
-	if (entree[i] == c)
-		return (dest + i + 1);
+	i = 0;
+	if (little[i] == '\0')
+		return ((char *)big);
+	while (big[i] != '\0')
+	{
+		j = 0;
+		while (big[j + i] == little[j] && j != len && little[j] != '\0')
+			if (little[++j] == '\0')
+				return ((char *)&big[i]);
+		i++;
+	}
 	return (NULL);
 }

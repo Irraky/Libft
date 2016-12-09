@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 09:48:07 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/05 11:22:13 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/05 10:34:20 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/05 14:15:21 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	char	*entree;
-	char	*sortie;
+	size_t	tmp;
 
-	entree = (char*)src;
-	sortie = (char*)dest;
 	i = -1;
-	if (n == 0)
-		return (NULL);
-	if (src == dest)
-		return (dest);
-	while (++i != n && entree[i] != c)
-		entree[i] = sortie[i];
-	if (entree[i] == c)
-		return (dest + i + 1);
-	return (NULL);
+	tmp = 0;
+	while (dst[i])
+		i++;
+	i--;
+	while (src[tmp] && tmp < size - 1)
+		dst[i + tmp] = src[tmp];
+		tmp++;
+	dst[i + tmp] = '\0';
+	return (tmp + i);
+}
+
+int		main(void)
+{
+	ft_strlcat("truc    ", "trac", 2);
+	strlcat("truc    ", "trac", 2);
+	return (0);
 }
