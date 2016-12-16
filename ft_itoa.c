@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/16 04:15:21 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 04:29:26 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/16 09:29:56 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_itoa(int n)
 {
-	int i;
+/*	int i;
 	int tmp;
 	char *nombre;
 
@@ -27,5 +27,6 @@ char	*ft_itoa(int n)
 	}
 	if (!(nombre = (char *)malloc(sizeof(char) * i + 1)))
 		return (NULL);
-	return (nombre);
+	return (nombre);*/
+	return (0);
 }
