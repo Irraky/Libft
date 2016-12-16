@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 12:47:22 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 03:40:41 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/12 15:29:32 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/16 04:30:47 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	char	*s2;
+	int		i;
+	int		u;
+
+	u = -1;
+	s2 = ft_strdup(s);
+	i = ft_strlen(s2);
+	while (++u < i)
+		f(s2[u]);
+	return (s2);
 }

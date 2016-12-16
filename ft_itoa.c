@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 12:47:22 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 03:40:41 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/16 04:15:21 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/16 04:29:26 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+char	*ft_itoa(int n)
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	int i;
+	int tmp;
+	char *nombre;
+
+	tmp = n;
+	i = (n < 0) ? 1 : 0;
+	while (tmp > 0)
+	{
+		tmp = tmp / 10;
+		i++;
+	}
+	if (!(nombre = (char *)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	return (nombre);
 }

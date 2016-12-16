@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 10:34:20 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 05:02:04 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/12 16:16:02 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/12 16:33:42 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strtrim(char const *s)
 {
-	size_t	i;
-	size_t	tmp;
+	int		i;
+	int		j;
+	char	*copie;
 
-	i = -1;
-	tmp = 0;
-	while (dst[i])
+	i = 0;
+	j = ft_strlen(s);
+	while (s[i] == '\t' || s[i] == ' ' || s[i] == '\n')
 		i++;
-	i--;
-	while (src[tmp] && tmp < size - 1)
-		dst[i + tmp] = src[tmp];
-		tmp++;
-	dst[i + tmp] = '\0';
-	return (tmp + i);
-}
-
-int		main(void)
-{
-	ft_strlcat("truc    ", "trac", 2);
-	return (0);
+	while ((s[j] == '\t' || s[j] == ' ' || s[j] == '\n') && &s[i] != &s[j])
+		j--;
+	if (&s[i] == &s[j])
+	{
+		copie = "";
+		return (copie);
+	}
+	if (!(copie = (char *)malloc(sizeof(char) * (j - i) + 1)))
+		return (NULL);
+	j = -1;
+	while (copie[++j])
+		copie[j] = s[i + j];
+	return (copie);
 }

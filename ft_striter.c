@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 12:47:22 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 03:40:41 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/12 15:08:33 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/16 04:32:23 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	int		i;
+
+	i = ft_strlen(s) + 1;
+	while (--i > 0)
+		f(&s[i]);
 }

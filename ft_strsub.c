@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/05 12:47:22 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 03:40:41 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/12 15:52:47 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/16 04:52:59 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+char	*ft_strsub(char const *s, unsigned int start, size_t size)
 {
-	write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	char	*troncon;
+	size_t	i;
+
+	i = -1;
+	if (!(troncon = (char*)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	while (++i < size)
+		troncon[i] = s[start + i];
+	troncon[i] = '\0';
+	return (troncon);
 }

@@ -6,7 +6,7 @@
 /*   By: aperez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 10:15:31 by aperez            #+#    #+#             */
-/*   Updated: 2016/12/09 17:53:23 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/16 04:49:42 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,17 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putendl(char const *s);
-
-/*
-void	*ft_memalloc(size_t size);
-void	*ft_memdel(void **ap);
-char	*ft_strnew(size_t size);
 void	ft_strdel(char **as);
-void	ft_strclr(char *s);
-*/
+char	*ft_strnew(size_t size);
+void	ft_striteri(char *s, void(*f)(unsigned int, char *));
+void	ft_memdel(void **ap);
+void	ft_striter(char *s, void(*f)(char *));
+void	*ft_memalloc(size_t size);
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
+char	*ft_strsub(char const *s, unsigned int start, size_t size);
+char	**ft_strsplit(char const *s, char c);
+
 #endif

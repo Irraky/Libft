@@ -6,7 +6,7 @@
 #    By: aperez <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 10:05:18 by aperez            #+#    #+#              #
-#    Updated: 2016/12/09 17:53:52 by drecours         ###   ########.fr        #
+#    Updated: 2016/12/16 03:34:45 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,18 @@ SRC = ft_memset.c \
 	  ft_putnbr_fd.c \
 	  ft_putnbr.c \
 	  ft_putendl_fd.c \
+	  ft_strdel.c \
+	  ft_strnew.c \
+	  ft_striteri.c \
+	  ft_memdel.c \
+	  ft_striter.c \
+	  ft_memalloc.c \
+	  ft_strmap.c \
+	  ft_strmapi.c \
+	  ft_strjoin.c \
+	  ft_strtrim.c \
+	  ft_strsub.c \
+	  ft_strsplit.c \
 
 OBJ = $(SRC:.c=.o)
 
