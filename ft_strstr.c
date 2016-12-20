@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 13:02:28 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/05 09:47:10 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/20 15:29:44 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strstr(const char *big, const char *little)
 	while (big[i] != '\0')
 	{
 		j = 0;
-		while (big[j + i] == little[j] || !(little[j]))
+		while (big[j + i] == little[j] || (little[j]) == '\0')
 			if (little[++j] == '\0')
 				return ((char*)&big[i]);
 		++i;
