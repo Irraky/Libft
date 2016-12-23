@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:16:02 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/12 16:33:42 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/23 10:43:44 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@ char	*ft_strtrim(char const *s)
 {
 	int		i;
 	int		j;
+	int		k;
 	char	*copie;
 
 	i = 0;
-	j = ft_strlen(s);
+	if (!s)
+		return (NULL);
 	while (s[i] == '\t' || s[i] == ' ' || s[i] == '\n')
 		i++;
-	while ((s[j] == '\t' || s[j] == ' ' || s[j] == '\n') && &s[i] != &s[j])
+	j = ft_strlen(s) - 1;
+	while ((s[j] == '\t' || s[j] == ' ' || s[j] == '\n') && i < j)
 		j--;
-	if (&s[i] == &s[j])
-	{
-		copie = "";
-		return (copie);
-	}
-	if (!(copie = (char *)malloc(sizeof(char) * (j - i) + 1)))
+	if (!(copie = (char *)malloc(j - i + 2)))
 		return (NULL);
-	j = -1;
-	while (copie[++j])
-		copie[j] = s[i + j];
+	k = -1;
+	while (++k <= j - i)
+		copie[k] = s[i + k];
+	copie[k] = '\0';
 	return (copie);
 }

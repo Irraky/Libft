@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 15:52:47 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 04:52:59 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/21 20:48:08 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strsub(char const *s, unsigned int start, size_t size)
 	size_t	i;
 
 	i = -1;
+	if (!s)
+		return (NULL);
 	if (!(troncon = (char*)malloc(sizeof(char) * size + 1)))
 		return (NULL);
 	while (++i < size)

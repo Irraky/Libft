@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 15:44:20 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/12 15:50:11 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/21 20:01:50 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		u;
 
 	u = -1;
-	s2 = strdup(s);
+	if (!s || !f)
+		return (NULL);
+	if (!(s2 = ft_strdup(s)))
+		return (NULL);
 	i = ft_strlen(s2);
 	while (++u < i)
-		f(u, s2[u]);
+		s2[u] = f(u, s[u]);
 	return (s2);
 }

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 12:16:43 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/20 18:28:41 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/21 11:36:46 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/21 23:26:31 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
-{
-	int i;
-	int sign;
-	int result;
+#include "libft.h"
+#include <stdio.h>
 
-	i = 0;
+int	ft_atoi(const char *str)
+{
+	int		sign;
+	int		result;
+
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' ||
-			str[i] == '\n' || str[i] == '\r' || str[i] == '\f')
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
+			|| *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+		{
+			sign = (*str == '-') ? -1 : 1;
+			str++;
+		}
+	while(*str <= '9' && *str >= '0')
 	{
-		sign = (str[i] == '-') ? -1 : 1;
-		i++;
+		result = result * 10 + *str - '0';
+		str++;
 	}
-	if (!(str[i] >= '0' && str[i] <= '9'))
-		return (0);
-	while (str[i] <= '9' && str[i] >= '0')
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	return ((sign < 0) ? (-result) : (result));
 }
