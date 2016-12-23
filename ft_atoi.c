@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/21 11:36:46 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/21 23:26:31 by drecours         ###   ########.fr       */
+/*   Created: 2016/12/23 15:15:57 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/23 15:16:28 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	int		sign;
 	int		result;
@@ -23,11 +22,11 @@ int	ft_atoi(const char *str)
 			|| *str == '\f' || *str == '\r')
 		str++;
 	if (*str == '-' || *str == '+')
-		{
-			sign = (*str == '-') ? -1 : 1;
-			str++;
-		}
-	while(*str <= '9' && *str >= '0')
+	{
+		sign = (*str == '-') ? -1 : 1;
+		str++;
+	}
+	while (*str <= '9' && *str >= '0')
 	{
 		result = result * 10 + *str - '0';
 		str++;

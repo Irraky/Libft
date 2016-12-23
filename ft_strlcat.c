@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 10:34:20 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/16 05:02:04 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/23 15:10:19 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 	i--;
 	while (src[tmp] && tmp < size - 1)
+	{
 		dst[i + tmp] = src[tmp];
 		tmp++;
+	}
 	dst[i + tmp] = '\0';
 	return (tmp + i);
 }

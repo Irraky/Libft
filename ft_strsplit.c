@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 10:52:44 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/23 14:28:53 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/23 17:31:01 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**ft_strsplit(char const *s, char c)
 		if (*s != c && *(s - 1) == c)
 		{
 			truc = 0;
-			while (*(s + truc) != c)
+			while (*(s + truc) != c && *(s + truc))
 				truc++;
 			if (!(tableau[i] = ft_strsub(s, 0, truc)))
 				return (NULL);
@@ -53,16 +53,22 @@ char	**ft_strsplit(char const *s, char c)
 		}
 		s++;
 	}
+	tableau[i] = NULL;
 	return (tableau);
 }
 
 int		main(void)
 {
-	char	**tableau = ft_strsplit("    5\niri b", ' ');
+	char	**tableau = ft_strsplit("dvb    5\niri bifb  po", ' ');
 	int		i;
 
-	i = -1;
-	while (tableau[++i])
+	i = 0;
+	while (tableau[i])
+	{
+		ft_putendl("0_0");
 		printf("%s", tableau[i]);
+		ft_putendl("0_1");
+		i++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aperez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 10:15:31 by aperez            #+#    #+#             */
-/*   Updated: 2016/12/16 09:39:28 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/23 15:21:41 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	*ft_strsub(char const *s, unsigned int start, size_t size);
 char	**ft_strsplit(char const *s, char c);
+char	*ft_itoa(int n);
 
 #endif
