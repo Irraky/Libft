@@ -1,74 +1,74 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                     :+:      :+:    :+:   */
+/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/23 10:52:44 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/23 17:31:01 by drecours         ###   ########.fr       */
+/*   Created: 2016/08/24 17:51:31 by drecours          #+#    #+#             */
+/*   Updated: 2016/12/25 11:03:57 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
-int		ft_mots(char const *s, char c)
+int		ft_compter_mots(char const *str, char c)
 {
-	int		n;
-
-	if (*s == '\0')
-		return (0);
-	n = 0;
-	n = (*s == c) ? 0 : 1;
-	while (*++s)
-		if (*s != c && *(s - 1) == c)
-			n++;
-	return (n);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	int		truc;
 	int		i;
-	char	**tableau;
+	int		mots;
 
-	if(!s || !*s)
-		return (NULL);
-	i = ft_mots(s, c);
-	if (!(tableau = (char **)malloc(sizeof(char*) * i)))
-		return (NULL);
+	mots = 0;
 	i = 0;
-	while (*s)
+	if (str[i] != c)
+		++mots;
+	++i;
+	while (str[i])
 	{
-		if (*s != c && *(s - 1) == c)
-		{
-			truc = 0;
-			while (*(s + truc) != c && *(s + truc))
-				truc++;
-			if (!(tableau[i] = ft_strsub(s, 0, truc)))
-				return (NULL);
-			s += truc;
-			i++;
-		}
-		s++;
+		if (str[i - 1] == c)
+			++mots;
+		++i;
 	}
-	tableau[i] = NULL;
-	return (tableau);
+	return (mots);
 }
 
-int		main(void)
+int		ft_taille(char const *str, int i, char c)
 {
-	char	**tableau = ft_strsplit("dvb    5\niri bifb  po", ' ');
-	int		i;
+	int sheep;
 
-	i = 0;
-	while (tableau[i])
+	sheep = 0;
+	while (str[i] != c && str[i])
 	{
-		ft_putendl("0_0");
-		printf("%s", tableau[i]);
-		ft_putendl("0_1");
+		sheep++;
 		i++;
 	}
-	return (0);
+	return (sheep);
+}
+
+char	**ft_strsplit(char const *str, char c)
+{
+	char	**tab;
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	j = 0;
+	if ((tab = malloc(sizeof(char*) * (ft_compter_mots(str, c) + 1))) == NULL)
+		return (NULL);
+	while (str[i])
+	{
+		while (str[i] == c  && str[i])
+			i++;
+		if (str[i])
+		{
+			k = 0;
+			if ((tab[j] = malloc(sizeof(char) * ft_taille(str, i, c) + 1)) == NULL)
+				return (NULL);
+			while (str[i] != c && str[i])
+				tab[j][k++] = str[i++];
+			tab[j++][k] = '\0';
+		}
+	}
+	tab[j] = NULL;
+	return (tab);
 }
