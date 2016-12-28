@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/24 17:51:31 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/25 11:03:57 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/28 15:45:02 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	**ft_strsplit(char const *str, char c)
 	int		j;
 	int		k;
 
+	if (!str)
+		return (NULL);
 	i = 0;
 	j = 0;
 	if ((tab = malloc(sizeof(char*) * (ft_compter_mots(str, c) + 1))) == NULL)

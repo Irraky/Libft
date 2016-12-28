@@ -6,7 +6,7 @@
 #    By: aperez <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 10:05:18 by aperez            #+#    #+#              #
-#    Updated: 2016/12/23 16:44:32 by drecours         ###   ########.fr        #
+#    Updated: 2016/12/28 17:05:20 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ SRC = ft_memset.c \
 	  ft_strtrim.c \
 	  ft_strsub.c \
 	  ft_strsplit.c \
-##	  ft_itoa.c
+	  ft_itoa.c
 
 OBJ = $(SRC:.c=.o)
 

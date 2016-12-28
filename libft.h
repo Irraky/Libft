@@ -6,12 +6,13 @@
 /*   By: aperez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 10:15:31 by aperez            #+#    #+#             */
-/*   Updated: 2016/12/23 15:21:41 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/28 18:07:57 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+	char	*c;
 
 # include <string.h>
 # include <unistd.h>

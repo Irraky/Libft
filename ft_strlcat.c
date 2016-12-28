@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/05 10:34:20 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/23 15:10:19 by drecours         ###   ########.fr       */
+/*   Updated: 2016/12/28 17:06:17 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	dst[i + tmp] = '\0';
 	return (tmp + i);
-}
-
-int		main(void)
-{
-	ft_strlcat("truc    ", "trac", 2);
-	return (0);
 }
