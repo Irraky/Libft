@@ -63,7 +63,9 @@ SRC = ft_memset.c \
 	  ft_strtrim.c \
 	  ft_strsub.c \
 	  ft_strsplit.c \
-	  ft_itoa.c
+	  ft_itoa.c \
+	  ft_isblank.c \
+	  ft_ilen.c
 
 OBJ = $(SRC:.c=.o)
 

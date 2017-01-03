@@ -80,4 +80,12 @@ char	*ft_strsub(char const *s, unsigned int start, size_t size);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
 
+
+/*
+** BONUS SECOND PART
+*/
+
+int		ft_isblank(int c);
+int		ft_ilen(int n);
+
 #endif
