@@ -9,5 +9,5 @@ int	ft_ilen(int n)
 		n = n / 10;
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }

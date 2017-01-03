@@ -14,6 +14,20 @@
 
 char	*ft_itoa(int n)
 {
-	if  (n > 10)
-		a[i] = 
+	char	*nb;
+	int		i;
+
+	i = ft_ilen(n);
+	if (!(nb = (char*)malloc(sizeof(char) * i + 1)))
+		return (NULL);
+	if (n < 0)
+		nb[0] = '-';
+	nb[i] = '\0';
+	while (n > 0)
+	{
+		nb[i] = n % 10 + 48;
+		i--;
+		n = n / 10;
+	}
+	return (nb);
 }
