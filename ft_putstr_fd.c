@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 15:18:05 by drecours          #+#    #+#             */
-/*   Updated: 2016/12/28 16:45:01 by drecours         ###   ########.fr       */
+/*   Updated: 2017/01/04 14:39:10 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putstr_fd(char const *s, int fd)
 {
 	if (s)
-		write(fd, s, strlen(s));
+		write(fd, s, ft_strlen(s));
 }
