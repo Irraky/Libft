@@ -6,22 +6,22 @@
 /*   By: aperez <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/15 10:15:31 by aperez            #+#    #+#             */
-/*   Updated: 2016/12/28 18:07:57 by drecours         ###   ########.fr       */
+/*   Updated: 2017/01/04 18:28:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-	char	*c;
-
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-/*
-** FIRST PART
-*/
-
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);
@@ -50,11 +50,6 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *big, const char *little);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
-/*
-** SECOND PART
-*/
-
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 void	ft_putchar(char c);
@@ -79,13 +74,9 @@ char	*ft_strtrim(char const *s);
 char	*ft_strsub(char const *s, unsigned int start, size_t size);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
-
-
-/*
-** BONUS SECOND PART
-*/
-
 int		ft_isblank(int c);
 int		ft_ilen(int n);
+int		ft_taille(char const *str, int i, char c);
+int		ft_compter_mots(char const *str, char c);
 
 #endif

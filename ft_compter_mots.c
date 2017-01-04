@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_compter_mots.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/25 09:28:15 by drecours          #+#    #+#             */
-/*   Updated: 2017/01/04 19:21:40 by drecours         ###   ########.fr       */
+/*   Created: 2017/01/04 16:56:49 by drecours          #+#    #+#             */
+/*   Updated: 2017/01/04 16:59:19 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		ft_compter_mots(char const *str, char c)
 {
-	unsigned int i;
+	int		i;
+	int		mots;
 
+	mots = 0;
 	i = 0;
-	if (!s1 || !s2)
-		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n)
+	if(str[i] !=c)
+		++mots;
+	i++;
+	while(str[i])
+	{
+		if (str[i - 1] == c)
+			mots++;
 		i++;
-	if ((s1[i] == s2[i] && s1[i] == '\0') || n == 0)
-		return (1);
-	if (n == i && s1[i - 1] == s2[i - 1])
-		return (1);
-	return (0);
+	}
+	return (mots);
 }
