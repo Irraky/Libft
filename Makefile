@@ -6,7 +6,7 @@
 #    By: aperez <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/15 10:05:18 by aperez            #+#    #+#              #
-#    Updated: 2017/01/04 16:56:38 by drecours         ###   ########.fr        #
+#    Updated: 2017/01/06 15:24:36 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,16 @@ SRC = ft_memset.c \
 	  ft_isblank.c \
 	  ft_ilen.c \
 	  ft_taille.c \
-	  ft_compter_mots.c
+	  ft_compter_mots.c \
+	  ft_swap.c \
+	  ft_lstdelone.c \
+	  ft_lstdel.c \
+	  ft_lstadd.c \
+	  ft_lstnew.c \
+	  ft_lstiter.c \
+	  ft_lstmap.c \
+	  ft_isupper.c \
+	  ft_islower.c
 
 OBJ = $(SRC:.c=.o)
 

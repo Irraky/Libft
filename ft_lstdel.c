@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 15:16:07 by drecours          #+#    #+#             */
-/*   Updated: 2017/01/05 21:51:31 by drecours         ###   ########.fr       */
+/*   Created: 2017/01/06 11:54:57 by drecours          #+#    #+#             */
+/*   Updated: 2017/01/06 12:26:40 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
-	int		j;
+	t_list	*j;
 
-	j = -1;
-	if (s && *s && f)
+	while (*alst)
 	{
-		i = ft_strlen(s);
-		while (++j != i)
-			f(j, &s[j]);
+		j = (*alst)->next;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = j;
 	}
+	*alst = NULL;
 }

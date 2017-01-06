@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 15:16:07 by drecours          #+#    #+#             */
-/*   Updated: 2017/01/05 21:51:31 by drecours         ###   ########.fr       */
+/*   Created: 2016/11/07 11:30:06 by drecours          #+#    #+#             */
+/*   Updated: 2016/11/10 12:10:20 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_swap(int *a, int *b)
 {
-	int		i;
-	int		j;
+	int c;
 
-	j = -1;
-	if (s && *s && f)
-	{
-		i = ft_strlen(s);
-		while (++j != i)
-			f(j, &s[j]);
-	}
+	c = *a;
+	*a = *b;
+	*b = c;
 }

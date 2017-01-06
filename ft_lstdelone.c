@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 15:16:07 by drecours          #+#    #+#             */
-/*   Updated: 2017/01/05 21:51:31 by drecours         ###   ########.fr       */
+/*   Created: 2017/01/05 21:20:27 by drecours          #+#    #+#             */
+/*   Updated: 2017/01/05 21:46:26 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int		i;
-	int		j;
-
-	j = -1;
-	if (s && *s && f)
-	{
-		i = ft_strlen(s);
-		while (++j != i)
-			f(j, &s[j]);
-	}
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

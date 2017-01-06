@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 15:16:07 by drecours          #+#    #+#             */
-/*   Updated: 2017/01/05 21:51:31 by drecours         ###   ########.fr       */
+/*   Created: 2017/01/06 15:21:28 by drecours          #+#    #+#             */
+/*   Updated: 2017/01/06 15:27:46 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int		ft_islower(int c)
 {
-	int		i;
-	int		j;
-
-	j = -1;
-	if (s && *s && f)
-	{
-		i = ft_strlen(s);
-		while (++j != i)
-			f(j, &s[j]);
-	}
+	if (c <= 'z' && c >= 'a')
+		return (1);
+	return (0);
 }
